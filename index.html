@@ -2400,6 +2400,313 @@
       }
     }
 
+    /* ============ AI AGENTS & INTEGRATIONS — FILM/CODE SCROLL ============ */
+    .aiag-section {
+      position: relative;
+      background: var(--bg-soft);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .aiag-pin {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .aiag-head {
+      margin-bottom: 28px;
+    }
+
+    .aiag-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--accent-teal);
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+
+    .aiag-head h2 {
+      font-size: clamp(1.7rem, 3.2vw, 2.5rem);
+      margin-bottom: 10px;
+    }
+
+    .aiag-head p {
+      color: var(--text-muted);
+      max-width: 560px;
+    }
+
+    .aiag-viewport {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .aiag-track {
+      display: flex;
+      align-items: stretch;
+      gap: 32px;
+      padding: 0 max(24px, calc((100vw - 1240px) / 2 + 24px));
+      will-change: transform;
+    }
+
+    .aiag-frame {
+      flex: 0 0 auto;
+      width: min(560px, 88vw);
+      display: flex;
+      flex-direction: column;
+      opacity: .4;
+      transform: scale(.96);
+      transition: opacity .5s var(--ease), transform .5s var(--ease);
+    }
+
+    .aiag-frame.is-active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* sprocket rail — deliberately fixed dark, like real filmstrip, in both themes */
+    .aiag-holes {
+      height: 14px;
+      border-radius: 4px;
+      background: #0b0d10;
+      background-image: repeating-linear-gradient(90deg,
+          #3a3f47 0 8px,
+          transparent 8px 22px);
+      background-position: 10px center;
+      flex-shrink: 0;
+    }
+
+    .aiag-card {
+      position: relative;
+      flex: 1;
+      margin: 6px 0;
+      padding: 26px 26px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow .4s var(--ease), border-color .4s var(--ease);
+    }
+
+    .aiag-frame.is-active .aiag-card {
+      box-shadow: var(--shadow-glow);
+      border-color: var(--primary);
+    }
+
+    .aiag-no {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-family: var(--font-head);
+      font-style: italic;
+      font-size: .85rem;
+      color: var(--text-faint);
+      letter-spacing: .04em;
+    }
+
+    .aiag-term {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg);
+    }
+
+    .aiag-term-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      background: var(--surface-strong);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .aiag-term-path {
+      margin-left: 6px;
+      font-family: var(--font-mono);
+      font-size: .74rem;
+      color: var(--text-faint);
+    }
+
+    .aiag-term-body {
+      padding: 14px 16px 16px;
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      line-height: 1.85;
+    }
+
+    .aiag-body {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .aiag-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .aiag-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: #04140f;
+    }
+
+    .aiag-body h3 {
+      font-size: 1.2rem;
+    }
+
+    .aiag-body p {
+      color: var(--text-muted);
+      font-size: .92rem;
+    }
+
+    .aiag-proj {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--surface-strong);
+      border: 1px solid var(--border);
+      width: fit-content;
+    }
+
+    .aiag-proj-label {
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--text-faint);
+    }
+
+    .aiag-proj-name {
+      font-weight: 700;
+      font-size: .88rem;
+      color: var(--accent-amber);
+    }
+
+    .aiag-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .aiag-tags span {
+      font-size: .74rem;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 8px;
+      background: var(--surface-strong);
+      color: var(--text-faint);
+    }
+
+    .aiag-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--accent-teal);
+      width: fit-content;
+    }
+
+    .aiag-link svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--primary-light);
+      transition: transform .25s var(--ease);
+    }
+
+    .aiag-link:hover svg {
+      transform: translate(3px, -3px);
+    }
+
+    .aiag-progress {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .aiag-progress-track {
+      flex: 1;
+      height: 4px;
+      border-radius: 99px;
+      background: var(--surface-strong);
+      overflow: hidden;
+    }
+
+    .aiag-progress-fill {
+      height: 100%;
+      width: 11%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transition: width .1s linear;
+    }
+
+    .aiag-counter {
+      font-family: var(--font-mono);
+      font-size: .8rem;
+      color: var(--text-faint);
+      white-space: nowrap;
+    }
+
+    /* mobile / touch fallback — no scroll-jacking, native swipe instead */
+    @media (max-width: 900px),
+    (pointer: coarse) {
+      .aiag-pin {
+        position: static;
+        height: auto;
+        padding: 80px 0;
+      }
+
+      .aiag-viewport {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .aiag-track {
+        transform: none !important;
+        padding: 0 24px;
+      }
+
+      .aiag-frame {
+        scroll-snap-align: center;
+        opacity: 1;
+        transform: none;
+      }
+
+      .aiag-progress {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .aiag-frame {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
     /* ============ 3D TILT CONSTELLATION ============ */
     .tilt-grid {
       display: grid;
@@ -3294,6 +3601,419 @@
           <span><img src="https://skillicons.dev/icons?i=illustrator" alt="" loading="lazy">Illustrator</span>
           <span><img src="https://skillicons.dev/icons?i=postman" alt="" loading="lazy">Postman</span>
           <span><img src="https://skillicons.dev/icons?i=vscode" alt="" loading="lazy">VS Code</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ AI AGENTS & INTEGRATIONS — PINNED HORIZONTAL SCROLL ============ -->
+    <section id="ai-agents" class="aiag-section">
+      <div class="aiag-pin">
+        <div class="container aiag-head reveal">
+          <span class="aiag-eyebrow">$ ./run-agents.sh --list</span>
+          <h2>AI Agents, Automation &amp; Integrations</h2>
+          <p>How I wire autonomous agents and no-code automation tools into real WordPress products — scroll to move
+            through the stack.</p>
+        </div>
+
+        <div class="aiag-viewport">
+          <div class="aiag-track" id="aiagTrack">
+
+            <!-- 01 — n8n -->
+            <article class="aiag-frame" data-index="1">
+              <div class="aiag-holes" aria-hidden="true"></div>
+              <div class="aiag-card glass">
+                <span class="aiag-no">№ 01</span>
+                <div class="aiag-term">
+                  <div class="aiag-term-bar">
+                    <span class="terminal-dot red"></span><span class="terminal-dot yellow"></span><span
+                      class="terminal-dot green"></span>
+                    <span class="aiag-term-path">~/agents/n8n.flow</span>
+                  </div>
+                  <div class="aiag-term-body">
+                    <span class="t-prompt">$</span> <span class="t-cmd">n8n start --workflow booking</span><br>
+                    <span class="t-out">→ trigger: new booking request</span>
+                    <span class="t-out">→ node: availability check</span>
+                    <span class="t-out">→ node: confirm &amp; notify</span>
+                  </div>
+                </div>
+                <div class="aiag-body">
+                  <div class="aiag-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <circle cx="6" cy="6" r="3" />
+                      <circle cx="18" cy="18" r="3" />
+                      <path d="M9 6h6a3 3 0 0 1 3 3v0M15 18H9a3 3 0 0 1-3-3v0" />
+                    </svg>
+                  </div>
+                  <h3>n8n</h3>
+                  <p>Self-hosted workflow automation wiring booking triggers, availability checks and confirmation
+                    messages together without custom glue code.</p>
+                  <div class="aiag-proj"><span class="aiag-proj-label">Project</span><span
+                      class="aiag-proj-name">Booking Agent</span></div>
+                  <div class="aiag-tags"><span>Workflow Automation</span><span>Self-hosted</span></div>
+                  <a class="aiag-link" href="https://n8n.io/" target="_blank" rel="noopener">n8n.io
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M7 17L17 7M7 7h10v10" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="aiag-holes" aria-hidden="true"></div>
+            </article>
+
+            <!-- 02 — Zapier -->
+            <article class="aiag-frame" data-index="2">
+              <div class="aiag-holes" aria-hidden="true"></div>
+              <div class="aiag-card glass">
+                <span class="aiag-no">№ 02</span>
+                <div class="aiag-term">
+                  <div class="aiag-term-bar">
+                    <span class="terminal-dot red"></span><span class="terminal-dot yellow"></span><span
+                      class="terminal-dot green"></span>
+                    <span class="aiag-term-path">~/agents/zapier.zap</span>
+                  </div>
+                  <div class="aiag-term-body">
+                    <span class="t-prompt">$</span> <span class="t-cmd">zap run --trigger new_ticket</span><br>
+                    <span class="t-out">→ helpdesk → CRM → Slack</span>
+                    <span class="t-out">→ status: synced in 400ms</span>
+                  </div>
+                </div>
+                <div class="aiag-body">
+                  <div class="aiag-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" />
+                    </svg>
+                  </div>
+                  <h3>Zapier</h3>
+                  <p>The glue layer connecting the helpdesk, CRM and Slack so support tickets move between tools without
+                    manual handoffs.</p>
+                  <div class="aiag-proj"><span class="aiag-proj-label">Project</span><span
+                      class="aiag-proj-name">Customer Support Agent</span></div>
+                  <div class="aiag-tags"><span>No-code</span><span>App Integrations</span></div>
+                  <a class="aiag-link" href="https://zapier.com/" target="_blank" rel="noopener">zapier.com
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M7 17L17 7M7 7h10v10" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="aiag-holes" aria-hidden="true"></div>
+            </article>
+
+            <!-- 03 — Langflow -->
+            <article class="aiag-frame" data-index="3">
+              <div class="aiag-holes" aria-hidden="true"></div>
+              <div class="aiag-card glass">
+                <span class="aiag-no">№ 03</span>
+                <div class="aiag-term">
+                  <div class="aiag-term-bar">
+                    <span class="terminal-dot red"></span><span class="terminal-dot yellow"></span><span
+                      class="terminal-dot green"></span>
+                    <span class="aiag-term-path">~/agents/langflow.json</span>
+                  </div>
+                  <div class="aiag-term-body">
+                    <span class="t-prompt">$</span> <span class="t-cmd">langflow serve --graph voice-agent</span><br>
+                    <span class="t-out">→ node: speech-to-text</span>
+                    <span class="t-out">→ node: LLM reasoning</span>
+                    <span class="t-out">→ node: text-to-speech</span>
+                  </div>
+                </div>
+                <div class="aiag-body">
+                  <div class="aiag-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <rect x="3" y="4" width="6" height="6" rx="1" />
+                      <rect x="15" y="4" width="6" height="6" rx="1" />
+                      <rect x="9" y="15" width="6" height="6" rx="1" />
+                      <path d="M6 10v3a2 2 0 0 0 2 2h1M18 10v3a2 2 0 0 1-2 2h-1" />
+                    </svg>
+                  </div>
+                  <h3>Langflow</h3>
+                  <p>Visual graph builder used to design and iterate the voice agent's reasoning pipeline before it
+                    touches production code.</p>
+                  <div class="aiag-proj"><span class="aiag-proj-label">Project</span><span class="aiag-proj-name">Voice
+                      AI Agent</span></div>
+                  <div class="aiag-tags"><span>Agent Orchestration</span><span>Low-code</span></div>
+                  <a class="aiag-link" href="https://www.langflow.org/" target="_blank" rel="noopener">langflow.org
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M7 17L17 7M7 7h10v10" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="aiag-holes" aria-hidden="true"></div>
+            </article>
+
+            <!-- 04 — ElevenLabs -->
+            <article class="aiag-frame" data-index="4">
+              <div class="aiag-holes" aria-hidden="true"></div>
+              <div class="aiag-card glass">
+                <span class="aiag-no">№ 04</span>
+                <div class="aiag-term">
+                  <div class="aiag-term-bar">
+                    <span class="terminal-dot red"></span><span class="terminal-dot yellow"></span><span
+                      class="terminal-dot green"></span>
+                    <span class="aiag-term-path">~/agents/elevenlabs.tts</span>
+                  </div>
+                  <div class="aiag-term-body">
+                    <span class="t-prompt">$</span> <span class="t-cmd">tts synth --voice natural --lang en</span><br>
+                    <span class="t-out">→ latency: 180ms</span>
+                    <span class="t-out">→ streaming: enabled</span>
+                  </div>
+                </div>
+                <div class="aiag-body">
+                  <div class="aiag-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M3 12h2l3-8 4 16 3-11 2 6h4" />
+                    </svg>
+                  </div>
+                  <h3>ElevenLabs</h3>
+                  <p>Realistic, low-latency voice synthesis powering the spoken side of the voice agent so responses
+                    sound natural, not robotic.</p>
+                  <div class="aiag-proj"><span class="aiag-proj-label">Project</span><span class="aiag-proj-name">Voice
+                      AI Agent</span></div>
+                  <div class="aiag-tags"><span>Voice Synthesis</span><span>Streaming TTS</span></div>
+                  <a class="aiag-link" href="https://elevenlabs.io/" target="_blank" rel="noopener">elevenlabs.io
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M7 17L17 7M7 7h10v10" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="aiag-holes" aria-hidden="true"></div>
+            </article>
+
+            <!-- 05 — Devin AI -->
+            <article class="aiag-frame" data-index="5">
+              <div class="aiag-holes" aria-hidden="true"></div>
+              <div class="aiag-card glass">
+                <span class="aiag-no">№ 05</span>
+                <div class="aiag-term">
+                  <div class="aiag-term-bar">
+                    <span class="terminal-dot red"></span><span class="terminal-dot yellow"></span><span
+                      class="terminal-dot green"></span>
+                    <span class="aiag-term-path">~/agents/devin.session</span>
+                  </div>
+                  <div class="aiag-term-body">
+                    <span class="t-prompt">$</span> <span class="t-cmd">devin plan "scaffold whatsapp
+                      webhook"</span><br>
+                    <span class="t-out">→ writing webhook handler...</span>
+                    <span class="t-out">→ tests: 6/6 passing</span>
+                  </div>
+                </div>
+                <div class="aiag-body">
+                  <div class="aiag-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <rect x="3" y="4" width="18" height="14" rx="2" />
+                      <path d="M8 20h8M7 9l3 3-3 3M13 15h4" />
+                    </svg>
+                  </div>
+                  <h3>Devin AI</h3>
+                  <p>Autonomous coding agent used to scaffold and test the webhook layer behind the WhatsApp integration
+                    end to end.</p>
+                  <div class="aiag-proj"><span class="aiag-proj-label">Project</span><span
+                      class="aiag-proj-name">WhatsApp AI Agent</span></div>
+                  <div class="aiag-tags"><span>Autonomous Coding</span><span>Testing</span></div>
+                  <a class="aiag-link" href="https://devin.ai/" target="_blank" rel="noopener">devin.ai
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M7 17L17 7M7 7h10v10" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="aiag-holes" aria-hidden="true"></div>
+            </article>
+
+            <!-- 06 — Claude -->
+            <article class="aiag-frame" data-index="6">
+              <div class="aiag-holes" aria-hidden="true"></div>
+              <div class="aiag-card glass">
+                <span class="aiag-no">№ 06</span>
+                <div class="aiag-term">
+                  <div class="aiag-term-bar">
+                    <span class="terminal-dot red"></span><span class="terminal-dot yellow"></span><span
+                      class="terminal-dot green"></span>
+                    <span class="aiag-term-path">~/agents/claude.brain</span>
+                  </div>
+                  <div class="aiag-term-body">
+                    <span class="t-prompt">$</span> <span class="t-cmd">claude respond --ticket #4821</span><br>
+                    <span class="t-out">→ context: order history + policy docs</span>
+                    <span class="t-out">→ resolution: drafted &amp; sent</span>
+                  </div>
+                </div>
+                <div class="aiag-body">
+                  <div class="aiag-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                      <path d="M8 9h8M8 13h5" />
+                    </svg>
+                  </div>
+                  <h3>Claude</h3>
+                  <p>The reasoning core behind the support agent — grounded in order history and policy docs, drafting
+                    resolutions instead of generic replies.</p>
+                  <div class="aiag-proj"><span class="aiag-proj-label">Project</span><span
+                      class="aiag-proj-name">Customer Support Agent</span></div>
+                  <div class="aiag-tags"><span>LLM Reasoning</span><span>RAG-grounded</span></div>
+                  <a class="aiag-link" href="https://claude.ai/" target="_blank" rel="noopener">claude.ai
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M7 17L17 7M7 7h10v10" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="aiag-holes" aria-hidden="true"></div>
+            </article>
+
+            <!-- 07 — OpenAI Operator -->
+            <article class="aiag-frame" data-index="7">
+              <div class="aiag-holes" aria-hidden="true"></div>
+              <div class="aiag-card glass">
+                <span class="aiag-no">№ 07</span>
+                <div class="aiag-term">
+                  <div class="aiag-term-bar">
+                    <span class="terminal-dot red"></span><span class="terminal-dot yellow"></span><span
+                      class="terminal-dot green"></span>
+                    <span class="aiag-term-path">~/agents/operator.browser</span>
+                  </div>
+                  <div class="aiag-term-body">
+                    <span class="t-prompt">$</span> <span class="t-cmd">operator run --task "book slot"</span><br>
+                    <span class="t-out">→ opening calendar page...</span>
+                    <span class="t-out">→ slot confirmed, receipt sent</span>
+                  </div>
+                </div>
+                <div class="aiag-body">
+                  <div class="aiag-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" opacity="0" />
+                      <rect x="3" y="4" width="18" height="16" rx="2" />
+                      <path d="M3 9h18M8 4v5" />
+                      <path d="M9 15l2 2 4-4" />
+                    </svg>
+                  </div>
+                  <h3>OpenAI Operator</h3>
+                  <p>A browser-operating agent that navigates real booking pages directly, clicking and filling forms
+                    the same way a human would.</p>
+                  <div class="aiag-proj"><span class="aiag-proj-label">Project</span><span
+                      class="aiag-proj-name">Booking Agent</span></div>
+                  <div class="aiag-tags"><span>Browser Agent</span><span>Task Automation</span></div>
+                  <a class="aiag-link" href="https://openai.com/index/introducing-operator/" target="_blank"
+                    rel="noopener">openai.com
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M7 17L17 7M7 7h10v10" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="aiag-holes" aria-hidden="true"></div>
+            </article>
+
+            <!-- 08 — Manus AI -->
+            <article class="aiag-frame" data-index="8">
+              <div class="aiag-holes" aria-hidden="true"></div>
+              <div class="aiag-card glass">
+                <span class="aiag-no">№ 08</span>
+                <div class="aiag-term">
+                  <div class="aiag-term-bar">
+                    <span class="terminal-dot red"></span><span class="terminal-dot yellow"></span><span
+                      class="terminal-dot green"></span>
+                    <span class="aiag-term-path">~/agents/manus.task</span>
+                  </div>
+                  <div class="aiag-term-body">
+                    <span class="t-prompt">$</span> <span class="t-cmd">manus run --channel whatsapp</span><br>
+                    <span class="t-out">→ step 1: parse intent</span>
+                    <span class="t-out">→ step 2: fetch order status</span>
+                    <span class="t-out">→ step 3: reply w/ tracking link</span>
+                  </div>
+                </div>
+                <div class="aiag-body">
+                  <div class="aiag-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="9" />
+                      <path d="M12 7v5l3 3" />
+                    </svg>
+                  </div>
+                  <h3>Manus AI</h3>
+                  <p>A multi-step autonomous agent that plans, executes and replies across a WhatsApp conversation
+                    without a fixed script.</p>
+                  <div class="aiag-proj"><span class="aiag-proj-label">Project</span><span
+                      class="aiag-proj-name">WhatsApp AI Agent</span></div>
+                  <div class="aiag-tags"><span>Autonomous Agent</span><span>Multi-step Planning</span></div>
+                  <a class="aiag-link" href="https://manus.im/" target="_blank" rel="noopener">manus.im
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M7 17L17 7M7 7h10v10" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="aiag-holes" aria-hidden="true"></div>
+            </article>
+
+            <!-- 09 — Auto-GPT -->
+            <article class="aiag-frame" data-index="9">
+              <div class="aiag-holes" aria-hidden="true"></div>
+              <div class="aiag-card glass">
+                <span class="aiag-no">№ 09</span>
+                <div class="aiag-term">
+                  <div class="aiag-term-bar">
+                    <span class="terminal-dot red"></span><span class="terminal-dot yellow"></span><span
+                      class="terminal-dot green"></span>
+                    <span class="aiag-term-path">~/agents/autogpt.loop</span>
+                  </div>
+                  <div class="aiag-term-body">
+                    <span class="t-prompt">$</span> <span class="t-cmd">autogpt loop --goal "handle voice
+                      queue"</span><br>
+                    <span class="t-out">→ iteration 12: queue cleared</span>
+                    <span class="t-out">→ self-check: passed</span>
+                  </div>
+                </div>
+                <div class="aiag-body">
+                  <div class="aiag-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M21 12a9 9 0 1 1-2.64-6.36" />
+                      <path d="M21 3v6h-6" />
+                    </svg>
+                  </div>
+                  <h3>Auto-GPT</h3>
+                  <p>A goal-driven looped agent used in early prototypes to test how far a voice queue could be
+                    self-managed without human triggers.</p>
+                  <div class="aiag-proj"><span class="aiag-proj-label">Project</span><span class="aiag-proj-name">Voice
+                      AI Agent</span></div>
+                  <div class="aiag-tags"><span>Goal-driven Loop</span><span>Prototyping</span></div>
+                  <a class="aiag-link" href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank"
+                    rel="noopener">github.com
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M7 17L17 7M7 7h10v10" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="aiag-holes" aria-hidden="true"></div>
+            </article>
+
+          </div>
+        </div>
+
+        <div class="container aiag-progress">
+          <div class="aiag-progress-track">
+            <div class="aiag-progress-fill" id="aiagFill"></div>
+          </div>
+          <span class="aiag-counter" id="aiagCounter">01 / 09</span>
         </div>
       </div>
     </section>
@@ -4321,6 +5041,87 @@
         });
       }, { threshold: 0.3 });
       bars.forEach(function (el) { barObserver.observe(el); });
+
+      /* ---------- AI AGENTS PINNED HORIZONTAL SCROLL ---------- */
+      (function () {
+        "use strict";
+
+        var section = document.querySelector('.aiag-section');
+        var pin = document.querySelector('.aiag-pin');
+        var viewport = document.querySelector('.aiag-viewport');
+        var track = document.getElementById('aiagTrack');
+        var frames = document.querySelectorAll('.aiag-frame');
+        var fill = document.getElementById('aiagFill');
+        var counter = document.getElementById('aiagCounter');
+
+        if (!section || !pin || !viewport || !track || !frames.length) return;
+
+        var isCoarse = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+        var isNarrow = window.matchMedia && window.matchMedia('(max-width: 900px)').matches;
+        var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        /* Mobile / touch / reduced-motion: skip scroll-jacking entirely.
+          CSS already turns .aiag-viewport into a native horizontal swipe area. */
+        if (isCoarse || isNarrow || reducedMotion) {
+          frames.forEach(function (f) { f.classList.add('is-active'); });
+          return;
+        }
+
+        var totalScroll = 0;
+        var ticking = false;
+
+        function measure() {
+          totalScroll = Math.max(track.scrollWidth - viewport.clientWidth, 0);
+          section.style.height = (window.innerHeight + totalScroll) + 'px';
+        }
+
+        function updateActiveFrame(progress) {
+          var idx = Math.round(progress * (frames.length - 1));
+          frames.forEach(function (f, i) {
+            f.classList.toggle('is-active', i === idx);
+          });
+          if (counter) {
+            counter.textContent = String(idx + 1).padStart(2, '0') + ' / ' + String(frames.length).padStart(2, '0');
+          }
+        }
+
+        function onScroll() {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(function () {
+            var rect = section.getBoundingClientRect();
+            var progress = 0;
+            if (totalScroll > 0) {
+              progress = -rect.top / totalScroll;
+              progress = Math.min(Math.max(progress, 0), 1);
+            }
+            track.style.transform = 'translateX(' + (-progress * totalScroll) + 'px)';
+            if (fill) fill.style.width = (progress * 100) + '%';
+            updateActiveFrame(progress);
+            ticking = false;
+          });
+        }
+
+        var resizeTimer;
+        function onResize() {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(function () {
+            measure();
+            onScroll();
+          }, 150);
+        }
+
+        measure();
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onResize);
+
+        /* Recalculate once fonts/images have settled, since track width can shift. */
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(measure);
+        }
+        window.addEventListener('load', measure);
+      })();
 
       /* ---------- SKILL TABS ---------- */
       var tabs = document.querySelectorAll('.skill-tab');
