@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sabbir Ahmed Sam — WordPress Plugin Developer &amp; AI Engineer</title>
+  <title>Sabbir Sam — WordPress Plugin Developer &amp; AI Engineer</title>
   <meta name="description"
-    content="Sabbir Ahmed Sam — WordPress Plugin Developer, WordPress.org Core Contributor, Full Stack & AI Engineer. Lead Developer at WPPOOL, founder of WPAzleen.">
+    content="Sabbir Sam — WordPress Plugin Developer, WordPress.org Core Contributor, Full Stack & AI Engineer. Lead Developer at WPPOOL.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -264,7 +264,7 @@
     }
 
     .brand-mark {
-      width: 34px;
+      width: 45px;
       height: 34px;
       border-radius: 10px;
       background: linear-gradient(135deg, var(--primary), var(--primary-light));
@@ -1385,6 +1385,306 @@
       font-size: .85rem;
       color: var(--text-faint);
     }
+
+
+    /* ============ HIERARCHY SECTION (drop-in) ============ */
+    .hier-section {
+      position: relative;
+      background: var(--bg-soft);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border)
+    }
+
+    .hier-pin {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden
+    }
+
+    .hier-headline {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+      margin-bottom: 26px
+    }
+
+    .hier-headline h2 {
+      font-size: clamp(1.7rem, 3.2vw, 2.5rem);
+      margin-bottom: 10px
+    }
+
+    .hier-headline p {
+      color: var(--text-muted);
+      max-width: 560px
+    }
+
+    .hier-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--accent-teal);
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+
+    .hier-viewport {
+      width: 100%;
+      overflow: hidden
+    }
+
+    .hier-track {
+      position: relative;
+      will-change: transform
+    }
+
+    /* width/height are set inline by JS: width = 3 x viewport width, so every stage
+     is exactly one screen wide no matter how large the monitor is */
+    .hier-canvas {
+      position: relative;
+      height: 760px
+    }
+
+    .hier-svg {
+      position: absolute;
+      inset: 0;
+      overflow: visible
+    }
+
+    .hier-path {
+      fill: none;
+      stroke: var(--border);
+      stroke-width: 1.5
+    }
+
+    .hier-stub {
+      fill: none;
+      stroke: var(--border);
+      stroke-width: 1.5;
+      stroke-dasharray: 3 5
+    }
+
+    .hier-endpoint {
+      fill: var(--accent-amber)
+    }
+
+    .hier-hub circle.hub-ring {
+      fill: var(--bg-soft);
+      stroke: var(--border);
+      stroke-width: 1.5
+    }
+
+    .hier-hub line {
+      stroke: var(--text-faint);
+      stroke-width: 1.6;
+      stroke-linecap: round
+    }
+
+    .hier-flow {
+      fill: var(--primary-light)
+    }
+
+    .hier-node {
+      position: absolute;
+      top: 0;
+      transform: translate(-50%, -50%);
+      width: clamp(280px, 24vw, 420px);
+      will-change: opacity, transform;
+    }
+
+    .hier-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+    }
+
+    .hier-node.is-active .hier-card {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-glow)
+    }
+
+    .hier-media {
+      position: relative;
+      height: clamp(110px, 9vw, 170px);
+      background: linear-gradient(135deg, color-mix(in srgb, var(--primary) 55%, var(--bg-soft)), color-mix(in srgb, var(--accent) 35%, var(--bg-soft)));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hier-media svg {
+      width: clamp(34px, 3vw, 48px);
+      height: clamp(34px, 3vw, 48px);
+      stroke: rgba(255, 255, 255, .9)
+    }
+
+    .hier-level {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      font-size: .78rem;
+      font-weight: 700;
+      padding: 5px 11px;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, .35);
+      color: #fff;
+      backdrop-filter: blur(4px);
+    }
+
+    .hier-role-ico {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+      background: rgba(0, 0, 0, .35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .hier-role-ico svg {
+      width: 16px;
+      height: 16px;
+      stroke: #fff
+    }
+
+    .hier-body {
+      padding: clamp(18px, 1.6vw, 26px)
+    }
+
+    .hier-body h4 {
+      font-size: clamp(1.1rem, 1.3vw, 1.5rem);
+      margin-bottom: 16px
+    }
+
+    .hier-stats {
+      display: flex;
+      align-items: center;
+      gap: clamp(14px, 1.6vw, 22px)
+    }
+
+    .hier-stat {
+      display: flex;
+      flex-direction: column
+    }
+
+    .hier-stat b {
+      font-family: var(--font-head);
+      font-size: clamp(1.2rem, 1.6vw, 1.6rem);
+      color: var(--text)
+    }
+
+    .hier-stat span {
+      font-size: .72rem;
+      letter-spacing: .02em;
+      color: var(--text-faint)
+    }
+
+    .hier-tag {
+      margin-left: auto;
+      font-size: .76rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--surface-strong);
+      color: var(--accent-teal);
+    }
+
+    .hier-progress {
+      width: 100%;
+      max-width: 1240px;
+      margin: 26px auto 0;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px
+    }
+
+    .hier-progress-track {
+      flex: 1;
+      height: 4px;
+      border-radius: 99px;
+      background: var(--surface-strong);
+      overflow: hidden
+    }
+
+    .hier-progress-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transition: width .1s linear
+    }
+
+    .hier-counter {
+      font-family: var(--font-mono);
+      font-size: .8rem;
+      color: var(--text-faint);
+      white-space: nowrap;
+      min-width: 120px;
+      text-align: right
+    }
+
+    /* touch / coarse-pointer / reduced-motion fallback: no scroll-jack, native swipe */
+    @media (max-width:900px),
+    (pointer:coarse) {
+      .hier-pin {
+        position: static;
+        height: auto;
+        padding: 60px 0
+      }
+
+      .hier-viewport {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x proximity
+      }
+
+      .hier-track {
+        transform: none !important
+      }
+
+      .hier-canvas {
+        width: 1500px !important;
+        margin: 0 auto
+      }
+
+      .hier-node {
+        opacity: 1 !important;
+        transform: translate(-50%, -50%) scale(1) !important
+      }
+
+      .hier-progress {
+        display: none
+      }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      .hier-node {
+        opacity: 1 !important;
+        transform: translate(-50%, -50%) scale(1) !important
+      }
+
+      .hier-flow {
+        display: none
+      }
+    }
+
 
     /* ============ PROJECTS ============ */
     .filters {
@@ -3105,8 +3405,8 @@
   <nav class="nav" id="nav">
     <div class="container">
       <div class="brand" data-scroll="#top">
-        <span class="brand-mark">SA</span>
-        Sabbir Ahmed Sam
+        <span class="brand-mark">SAM</span>
+        Sabbir Sam
       </div>
       <ul class="nav-links" id="navLinks">
         <li><a data-scroll="#about">About</a></li>
@@ -3290,7 +3590,8 @@
                 <span class="c-kw">class</span> <span class="c-fn">Sabbir_Ahmed_Sam</span> {
 
                 <span class="c-var">$role</span> = <span class="c-str">'Senior Software Engineer @ WPPOOL'</span>;
-                <span class="c-var">$brand</span> = <span class="c-str">'Founder &amp; Lead Developer, WPAzleen'</span>;
+                <!-- <span class="c-var">$brand</span> = <span class="c-str">'Founder &amp; Lead Developer, WPAzleen'</span>; -->
+                <span class="c-var">$brand</span> = <span class="c-str">'Lead Developer, WPAzleen'</span>;
                 <span class="c-var">$experience</span> = <span class="c-str">'6 years'</span>;
 
                 <span class="c-kw">public function</span> <span class="c-fn">focus</span>() {
@@ -3318,21 +3619,23 @@
               <div class="tl-item">
                 <div class="tl-dot"></div>
                 <div class="tl-content">
-                  <span>Since 2025</span>
-                  <h4>Founder &amp; Lead Developer — WPAzleen</h4>
-                  <p>Building AI-native WordPress products: AskAny (AI chatbot), Shop Explorer, Product Display, and
-                    more — brand line "Innovation in Code."</p>
-                </div>
-              </div>
-              <div class="tl-item">
-                <div class="tl-dot"></div>
-                <div class="tl-content">
                   <span>Ongoing</span>
                   <h4>WordPress.org Core Contributor</h4>
                   <p>Contributing to WordPress core and the plugin ecosystem; regular speaker/attendee at WordCamp
                     Sylhet &amp; WordCamp Dhaka.</p>
                 </div>
               </div>
+
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-content">
+                  <span>Side Project</span>
+                  <h4>Lead Developer — WPAzleen</h4>
+                  <p>Building AI-native WordPress products: AskAny (AI chatbot), Shop Explorer, Product Display, and
+                    more — brand line "Innovation in Code."</p>
+                </div>
+              </div>
+
               <div class="tl-item">
                 <div class="tl-dot"></div>
                 <div class="tl-content">
@@ -4015,6 +4318,246 @@
           </div>
           <span class="aiag-counter" id="aiagCounter">01 / 09</span>
         </div>
+      </div>
+    </section>
+
+    <!-- ============ HIERARCHY SECTION (drop-in) ============ -->
+    <!-- ============ HIERARCHY SECTION (drop-in) ============ -->
+    <section class="hier-section" id="hierarchy">
+      <div class="hier-pin" id="hierPin">
+
+        <div class="hier-headline">
+          <span class="hier-eyebrow">$ ./stack --trace</span>
+          <h2>How the stack becomes a product.</h2>
+          <p>One foundation, three specializations, one flagship output — scroll to trace how it comes together.</p>
+        </div>
+
+        <div class="hier-viewport" id="hierViewport">
+          <div class="hier-track" id="hierTrack">
+            <div class="hier-canvas" id="hierCanvas">
+
+              <svg class="hier-svg" id="hierSvg" viewBox="0 0 3000 760" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <filter id="hierGlow" x="-200%" y="-200%" width="500%" height="500%">
+                    <feGaussianBlur stdDeviation="4" result="b" />
+                    <feMerge>
+                      <feMergeNode in="b" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+
+                <path class="hier-stub" d="M60,380 L110,380" />
+                <circle class="hier-endpoint" cx="55" cy="380" r="6" />
+                <path class="hier-stub" d="M2890,380 L2940,380" />
+                <circle class="hier-endpoint" cx="2945" cy="380" r="6" />
+
+                <path id="pCeoHub" class="hier-path" d="M660,380 C730,380 770,380 830,380" />
+                <path id="pHubEng" class="hier-path" d="M900,380 C1080,380 1200,200 1370,180" />
+                <path id="pHubProd" class="hier-path" d="M900,380 C1100,380 1250,380 1370,380" />
+                <path id="pHubDes" class="hier-path" d="M900,380 C1080,380 1200,560 1370,580" />
+                <path id="pEngHub" class="hier-path" d="M1630,180 C1800,180 1950,340 2100,380" />
+                <path id="pProdHub" class="hier-path" d="M1630,380 C1850,380 1950,380 2100,380" />
+                <path id="pDesHub" class="hier-path" d="M1630,580 C1800,580 1950,420 2100,380" />
+                <path id="pHubL3" class="hier-path" d="M2170,380 C2250,380 2300,380 2340,380" />
+
+                <g class="hier-hub" transform="translate(865,380)">
+                  <circle class="hub-ring" r="20" />
+                  <line x1="-8" y1="0" x2="8" y2="0" />
+                  <line x1="0" y1="-8" x2="0" y2="8" />
+                </g>
+                <g class="hier-hub" transform="translate(2135,380)">
+                  <circle class="hub-ring" r="20" />
+                  <line x1="-8" y1="0" x2="8" y2="0" />
+                  <line x1="0" y1="-8" x2="0" y2="8" />
+                </g>
+
+                <circle class="hier-flow" r="5" filter="url(#hierGlow)">
+                  <animateMotion dur="2.2s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear">
+                    <mpath href="#pCeoHub" />
+                  </animateMotion>
+                </circle>
+                <circle class="hier-flow" r="5" filter="url(#hierGlow)">
+                  <animateMotion dur="2.6s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear">
+                    <mpath href="#pHubEng" />
+                  </animateMotion>
+                </circle>
+                <circle class="hier-flow" r="5" filter="url(#hierGlow)">
+                  <animateMotion dur="2.4s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear">
+                    <mpath href="#pHubProd" />
+                  </animateMotion>
+                </circle>
+                <circle class="hier-flow" r="5" filter="url(#hierGlow)">
+                  <animateMotion dur="2.8s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear">
+                    <mpath href="#pHubDes" />
+                  </animateMotion>
+                </circle>
+                <circle class="hier-flow" r="5" filter="url(#hierGlow)">
+                  <animateMotion dur="2.3s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear">
+                    <mpath href="#pEngHub" />
+                  </animateMotion>
+                </circle>
+                <circle class="hier-flow" r="5" filter="url(#hierGlow)">
+                  <animateMotion dur="2.5s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear">
+                    <mpath href="#pProdHub" />
+                  </animateMotion>
+                </circle>
+                <circle class="hier-flow" r="5" filter="url(#hierGlow)">
+                  <animateMotion dur="2.7s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear">
+                    <mpath href="#pDesHub" />
+                  </animateMotion>
+                </circle>
+                <circle class="hier-flow" r="5" filter="url(#hierGlow)">
+                  <animateMotion dur="2.1s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear">
+                    <mpath href="#pHubL3" />
+                  </animateMotion>
+                </circle>
+              </svg>
+
+              <!-- Level 1 — the foundation everything is built on -->
+              <div class="hier-node" data-cx="500" style="left:16.667%;top:380px">
+                <div class="hier-card">
+                  <div class="hier-media">
+                    <span class="hier-level">Level 1</span>
+                    <span class="hier-role-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 20l1.5-9L9 15l3-8 3 8 3.5-4L20 20z" />
+                      </svg></span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M9 3h6l1 4h4v4l-4 1v6l-4 1-4-1v-6l-4-1V7h4z" />
+                    </svg>
+                  </div>
+                  <div class="hier-body">
+                    <h4>WordPress Foundation</h4>
+                    <div class="hier-stats">
+                      <div class="hier-stat"><b>6</b><span>YEARS</span></div>
+                      <div class="hier-stat"><b>96%</b><span>PHP / PLUGINS</span></div>
+                      <span class="hier-tag">Core</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Level 2 — three specializations that branch out of it -->
+              <div class="hier-node" data-cx="1500" style="left:50%;top:180px">
+                <div class="hier-card">
+                  <div class="hier-media">
+                    <span class="hier-level">Level 2</span>
+                    <span class="hier-role-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1" />
+                        <circle cx="20" cy="21" r="1" />
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                      </svg></span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path
+                        d="M21 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v3M3 8h18M3 8v11a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8" />
+                    </svg>
+                  </div>
+                  <div class="hier-body">
+                    <h4>WooCommerce &amp; Sync</h4>
+                    <div class="hier-stats">
+                      <div class="hier-stat"><b>6+</b><span>PLUGINS</span></div>
+                      <div class="hier-stat"><b>1000+</b><span>SITES</span></div>
+                      <span class="hier-tag">Sync</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hier-node" data-cx="1500" style="left:50%;top:380px">
+                <div class="hier-card">
+                  <div class="hier-media">
+                    <span class="hier-level">Level 2</span>
+                    <span class="hier-role-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3" />
+                        <path
+                          d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" />
+                      </svg></span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <circle cx="11" cy="11" r="7" />
+                      <path d="M21 21l-4.3-4.3" />
+                    </svg>
+                  </div>
+                  <div class="hier-body">
+                    <h4>AI, RAG &amp; Agents</h4>
+                    <div class="hier-stats">
+                      <div class="hier-stat"><b>90%</b><span>RAG SKILL</span></div>
+                      <div class="hier-stat"><b>MCP</b><span>TOOLING</span></div>
+                      <span class="hier-tag">AI</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hier-node" data-cx="1500" style="left:50%;top:580px">
+                <div class="hier-card">
+                  <div class="hier-media">
+                    <span class="hier-level">Level 2</span>
+                    <span class="hier-role-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7" />
+                        <rect x="14" y="3" width="7" height="7" />
+                        <rect x="14" y="14" width="7" height="7" />
+                        <rect x="3" y="14" width="7" height="7" />
+                      </svg></span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M4 4h16v16H4z" />
+                      <path d="M4 9h16M9 4v16" />
+                    </svg>
+                  </div>
+                  <div class="hier-body">
+                    <h4>Full-Stack UI</h4>
+                    <div class="hier-stats">
+                      <div class="hier-stat"><b>92%</b><span>JS/TS</span></div>
+                      <div class="hier-stat"><b>React</b><span>+ ALPINE</span></div>
+                      <span class="hier-tag">UI</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Level 3 — where all three converge into shipped output -->
+              <div class="hier-node" data-cx="2500" style="left:83.333%;top:380px">
+                <div class="hier-card">
+                  <div class="hier-media">
+                    <span class="hier-level">Level 3</span>
+                    <span class="hier-role-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6L9 17l-5-5" />
+                      </svg></span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z" />
+                    </svg>
+                  </div>
+                  <div class="hier-body">
+                    <h4>WPAzleen &amp; WPPOOL Products</h4>
+                    <div class="hier-stats">
+                      <div class="hier-stat"><b>17</b><span>PLUGINS SHIPPED</span></div>
+                      <div class="hier-stat"><b>1000+</b><span>LIVE SITES</span></div>
+                      <span class="hier-tag">Shipped</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="hier-progress">
+          <div class="hier-progress-track">
+            <div class="hier-progress-fill" id="hierFill"></div>
+          </div>
+          <span class="hier-counter" id="hierCounter">WordPress Foundation</span>
+        </div>
+
       </div>
     </section>
 
@@ -4723,7 +5266,7 @@
           </svg>
           <p>"I build products that are meant to be depended on — sync tools that don't silently fail, chatbots that
             don't hallucinate on your data, and code that passes review the first time."</p>
-          <span>— Sabbir Ahmed Sam</span>
+          <span>— Sabbir Sam</span>
         </div>
       </div>
     </section>
@@ -5215,6 +5758,148 @@
         window.addEventListener('scroll', heroParallax, { passive: true });
         heroParallax();
       }
+
+      /* ---------- hierarchy view port ---------- */
+      var section = document.getElementById('hierarchy');
+      var pin = document.getElementById('hierPin');
+      var viewport = document.getElementById('hierViewport');
+      var track = document.getElementById('hierTrack');
+      var canvas = document.getElementById('hierCanvas');
+      var svg = document.getElementById('hierSvg');
+      var nodes = document.querySelectorAll('.hier-node');
+      var fill = document.getElementById('hierFill');
+      var counter = document.getElementById('hierCounter');
+      if (!section || !pin || !viewport || !track || !canvas || !svg || !nodes.length) return;
+
+      var isCoarse = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+      var isNarrow = window.matchMedia && window.matchMedia('(max-width: 900px)').matches;
+      var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (isCoarse || isNarrow || reducedMotion) {
+        nodes.forEach(function (n) { n.style.opacity = 1; });
+        return;
+      }
+
+      var STAGES = 3;
+      var DESIGN_WIDTH = 3000;
+      var canvasWidthPx = 0, canvasHeightPx = 0;
+      var totalScroll = 0;
+      var ticking = false;
+      var labels = ['WordPress Foundation', 'Specializations', 'Shipped Products'];
+
+      var ceo = nodes[0], eng = nodes[1], prod = nodes[2], des = nodes[3], l3 = nodes[4];
+      var hubL = svg.querySelector('.hier-hub');            // first hub
+      var hubR = svg.querySelectorAll('.hier-hub')[1];      // second hub
+      var pCeoHub = document.getElementById('pCeoHub');
+      var pHubEng = document.getElementById('pHubEng');
+      var pHubProd = document.getElementById('pHubProd');
+      var pHubDes = document.getElementById('pHubDes');
+      var pEngHub = document.getElementById('pEngHub');
+      var pProdHub = document.getElementById('pProdHub');
+      var pDesHub = document.getElementById('pDesHub');
+      var pHubL3 = document.getElementById('pHubL3');
+      var stubs = svg.querySelectorAll('.hier-stub');
+      var endpoints = svg.querySelectorAll('.hier-endpoint');
+
+      function centerOf(el) {
+        var cRect = canvas.getBoundingClientRect();
+        var r = el.getBoundingClientRect();
+        return { x: r.left + r.width / 2 - cRect.left, y: r.top + r.height / 2 - cRect.top };
+      }
+
+      function curve(a, b) {
+        var cx1 = a.x + (b.x - a.x) * 0.35;
+        var cx2 = a.x + (b.x - a.x) * 0.75;
+        return 'M' + a.x + ',' + a.y + ' C' + cx1 + ',' + a.y + ' ' + cx2 + ',' + b.y + ' ' + b.x + ',' + b.y;
+      }
+
+      function updatePaths() {
+        canvasHeightPx = canvas.getBoundingClientRect().height;
+        svg.setAttribute('viewBox', '0 0 ' + canvasWidthPx + ' ' + canvasHeightPx);
+        svg.removeAttribute('preserveAspectRatio');
+
+        var cCeo = centerOf(ceo), cEng = centerOf(eng), cProd = centerOf(prod),
+          cDes = centerOf(des), cL3 = centerOf(l3);
+
+        var hubLX = cCeo.x + (cProd.x - cCeo.x) * 0.55;
+        var hubRX = cProd.x + (cL3.x - cProd.x) * 0.45;
+        var hubLPt = { x: hubLX, y: cProd.y };
+        var hubRPt = { x: hubRX, y: cProd.y };
+
+        pCeoHub.setAttribute('d', curve(cCeo, hubLPt));
+        pHubEng.setAttribute('d', curve(hubLPt, cEng));
+        pHubProd.setAttribute('d', curve(hubLPt, cProd));
+        pHubDes.setAttribute('d', curve(hubLPt, cDes));
+        pEngHub.setAttribute('d', curve(cEng, hubRPt));
+        pProdHub.setAttribute('d', curve(cProd, hubRPt));
+        pDesHub.setAttribute('d', curve(cDes, hubRPt));
+        pHubL3.setAttribute('d', curve(hubRPt, cL3));
+
+        hubL.setAttribute('transform', 'translate(' + hubLPt.x + ',' + hubLPt.y + ')');
+        hubR.setAttribute('transform', 'translate(' + hubRPt.x + ',' + hubRPt.y + ')');
+
+        // start/end stubs + dots, anchored to CEO / L3 y-centers
+        stubs[0].setAttribute('d', 'M' + (cCeo.x - 445) + ',' + cCeo.y + ' L' + (cCeo.x - 395) + ',' + cCeo.y);
+        endpoints[0].setAttribute('cx', cCeo.x - 450); endpoints[0].setAttribute('cy', cCeo.y);
+        stubs[1].setAttribute('d', 'M' + (cL3.x + 390) + ',' + cL3.y + ' L' + (cL3.x + 440) + ',' + cL3.y);
+        endpoints[1].setAttribute('cx', cL3.x + 445); endpoints[1].setAttribute('cy', cL3.y);
+      }
+
+      function measure() {
+        var vpWidth = viewport.clientWidth;
+        canvasWidthPx = vpWidth * STAGES;
+        canvas.style.width = canvasWidthPx + 'px';
+        totalScroll = canvasWidthPx - vpWidth;
+        section.style.height = (window.innerHeight + totalScroll) + 'px';
+        updatePaths();
+      }
+
+      function smoothstep(x) { x = Math.min(Math.max(x, 0), 1); return x * x * (3 - 2 * x); }
+
+      function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () {
+          var rect = section.getBoundingClientRect();
+          var progress = 0;
+          if (totalScroll > 0) { progress = Math.min(Math.max(-rect.top / totalScroll, 0), 1); }
+          var offset = progress * totalScroll;
+          track.style.transform = 'translateX(' + (-offset) + 'px)';
+          if (fill) fill.style.width = (progress * 100) + '%';
+
+          var vpWidth = viewport.clientWidth;
+          var centerX = offset + vpWidth / 2;
+          var fadeZone = vpWidth * 0.42;
+
+          var closestDist = Infinity, closestLabel = 0;
+          nodes.forEach(function (node) {
+            var frac = parseFloat(node.getAttribute('data-cx')) / DESIGN_WIDTH;
+            var cxPx = frac * canvasWidthPx;
+            var dist = Math.abs(cxPx - centerX);
+            var t = 1 - smoothstep(dist / fadeZone);
+            node.style.opacity = Math.max(t, 0.05);
+            node.style.transform = 'translate(-50%,-50%) scale(' + (0.88 + 0.12 * t) + ')';
+            node.classList.toggle('is-active', t > 0.6);
+            if (dist < closestDist) { closestDist = dist; closestLabel = frac < 0.34 ? 0 : (frac > 0.66 ? 2 : 1); }
+          });
+          if (counter) counter.textContent = labels[closestLabel];
+          ticking = false;
+        });
+      }
+
+      var resizeTimer;
+      function onResize() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () { measure(); onScroll(); }, 150);
+      }
+
+      measure();
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onResize);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { measure(); onScroll(); });
+      window.addEventListener('load', function () { measure(); onScroll(); });
+
 
       /* ---------- CUSTOM CURSOR ---------- */
       if (isFinePointer) {
