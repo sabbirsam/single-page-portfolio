@@ -3653,6 +3653,43 @@
     body.modal-lock {
       overflow: hidden;
     }
+
+    .nav-close {
+      display: none;
+      position: absolute;
+      top: 22px;
+      right: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease);
+    }
+
+    .nav-close svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--text);
+    }
+
+    .nav-close:hover {
+      border-color: var(--primary);
+      transform: rotate(90deg);
+    }
+
+    .nav-close:active {
+      transform: rotate(90deg) scale(.9);
+    }
+
+    @media (max-width:900px) {
+      .nav-close {
+        display: flex;
+      }
+    }
   </style>
 
 </head>
@@ -3669,6 +3706,12 @@
         Sabbir Sam
       </div>
       <ul class="nav-links" id="navLinks">
+        <button class="nav-close" id="navClose" aria-label="Close menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
+        </button>
         <li><a data-scroll="#about">About</a></li>
         <li><a data-scroll="#terminal-cv">CV</a></li>
         <li><a data-scroll="#skills">Skills</a></li>
@@ -6283,6 +6326,11 @@
         /* NOTE for WordPress conversion: replace this handler with a real submit
            (e.g. Contact Form 7, WPForms, or a REST API endpoint / admin-ajax action). */
       });
+
+      var navClose = document.getElementById('navClose');
+      if (navClose) {
+        navClose.addEventListener('click', closeMenu);
+      }
 
       /* ---------- BACK TO TOP ---------- */
       document.getElementById('toTop').addEventListener('click', function () {
