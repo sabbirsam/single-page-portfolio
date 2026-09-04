@@ -5975,6 +5975,15 @@
         canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
         ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
         anchor.x = W / 2; anchor.y = 6;
+
+        // re-seat every rope point on the new anchor so nothing is left
+        // drifting in from a stale width — this is what fixes the mobile gap
+        for (var i = 0; i < points.length; i++) {
+          points[i].x = anchor.x;
+          points[i].y = anchor.y + i * SEG_LEN;
+          points[i].oldx = points[i].x;
+          points[i].oldy = points[i].y;
+        }
       }
 
       /* ---------------- verlet rope ---------------- */
@@ -6197,8 +6206,14 @@
       }
 
       window.addEventListener('resize', resize);
+      window.addEventListener('orientationchange', resize);
       resize();
       requestAnimationFrame(loop);
+
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(resize);
+      }
+      window.addEventListener('load', resize);
 
       /* ---------------- toggle classic / lanyard ---------------- */
       toggleBtn.addEventListener('click', function () {
