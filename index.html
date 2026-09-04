@@ -618,8 +618,10 @@
     .hero-visual {
       position: relative;
       display: flex;
+      flex-direction: column;
       justify-content: center;
-      align-items: flex-start;
+      align-items: center;
+      gap: 18px;
       height: 100%;
     }
 
@@ -1037,6 +1039,264 @@
 
     .about-card p:last-child {
       margin-bottom: 0;
+    }
+
+    /* ============ STAGE (rope + card live here) ============ */
+    .idc-stage {
+      position: relative;
+      width: min(420px, 92vw);
+      height: 560px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .idc-stage canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    /* ============ THE CARD ITSELF ============ */
+    .idc-card {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 250px;
+      transform: translate(-50%, 0);
+      transform-origin: top center;
+      cursor: grab;
+      user-select: none;
+      touch-action: none;
+      will-change: transform, left, top;
+    }
+
+    .idc-card.dragging {
+      cursor: grabbing;
+    }
+
+    .idc-clip {
+      width: 34px;
+      height: 16px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, #d7dde3, #9aa4ac);
+      border-radius: 5px 5px 3px 3px;
+      box-shadow: 0 2px 3px rgba(0, 0, 0, .4), inset 0 1px 0 rgba(255, 255, 255, .6);
+      position: relative;
+      z-index: 2;
+    }
+
+    .idc-clip::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 6px;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #eef1f4, #b7bfc6);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, .3);
+    }
+
+    .idc-body {
+      margin-top: -4px;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, .55), 0 0 0 1px rgba(15, 155, 142, .15);
+      overflow: hidden;
+    }
+
+    .idc-media {
+      height: 96px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light) 55%, var(--accent) 130%);
+      position: relative;
+    }
+
+    .idc-media::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(115deg, rgba(255, 255, 255, .08) 0 2px, transparent 2px 14px);
+      mix-blend-mode: overlay;
+    }
+
+    .idc-avatar {
+      position: absolute;
+      left: 50%;
+      bottom: -34px;
+      transform: translateX(-50%);
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 3px solid var(--bg-soft);
+      background: #1a2230 center/cover no-repeat;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, .5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .idc-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    .idc-info {
+      padding: 44px 20px 20px;
+      text-align: center;
+    }
+
+    .idc-name {
+      font-family: var(--font-head);
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .idc-role {
+      font-size: .78rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .idc-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 14px 0;
+    }
+
+    .idc-stats {
+      display: flex;
+      justify-content: space-between;
+      text-align: left;
+      gap: 10px;
+    }
+
+    .idc-stat span {
+      display: block;
+      font-size: .66rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--text-faint);
+    }
+
+    .idc-stat b {
+      display: block;
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 2px;
+    }
+
+    .idc-status {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 14px;
+      font-size: .72rem;
+      color: var(--text-faint);
+    }
+
+    .idc-status i {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(31, 217, 196, .2);
+    }
+
+    .idc-barcode {
+      margin-top: 14px;
+      height: 26px;
+      border-radius: 6px;
+      background: repeating-linear-gradient(90deg, var(--text-faint) 0 1px, transparent 1px 3px);
+      opacity: .35;
+    }
+
+    .idc-id {
+      margin-top: 8px;
+      font-family: var(--font-mono);
+      font-size: .62rem;
+      color: var(--text-faint);
+      letter-spacing: .04em;
+    }
+
+    .idc-hint {
+      position: absolute;
+      bottom: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: .75rem;
+      color: var(--text-faint);
+      white-space: nowrap;
+    }
+
+    /* ============ CONTROLS ============ */
+    .idc-controls {
+      display: flex;
+      gap: 12px;
+    }
+
+    .idc-btn {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: .88rem;
+      padding: 11px 22px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .idc-btn:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .idc-btn.primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-color: transparent;
+      color: #ffffff;
+    }
+
+    /* classic photo variant, for the toggle */
+    .idc-classic {
+      display: none;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .idc-btn.small {
+      font-size: .78rem;
+      padding: 8px 18px;
+    }
+
+    .idc-stage.classic-mode {
+      height: min(64vh, 600px);
+    }
+
+    .idc-stage.classic-mode .idc-classic {
+      display: flex;
+    }
+
+    .idc-stage.classic-mode .idc-card,
+    .idc-stage.classic-mode canvas {
+      display: none;
     }
 
     /* --- code-vibe about card --- */
@@ -3468,18 +3728,50 @@
         </div>
 
         <div class="hero-visual">
-          <div class="hero-photo-wrap" id="heroPhotoWrap">
-            <div class="hero-photo-glow"></div>
-            <img class="hero-photo" id="heroPhoto"
-              src="https://sabbirsam.wpazleen.com/wp-content/uploads/2026/08/MG_9854-scaled-e1786600215162.jpg"
-              alt="Placeholder portrait — swap this file for your own photo" loading="eager">
-            <div class="hero-photo-fade"></div>
+          <div class="idc-stage" id="idcStage">
+            <canvas id="idcCanvas"></canvas>
 
-            <div class="hero-photo-card glass">
-              <span class="dot-live"></span>
-              SABBIR · SAM
+            <div class="idc-card" id="idcCard">
+              <div class="idc-clip"></div>
+              <div class="idc-body">
+                <div class="idc-media">
+                  <div class="idc-avatar">
+                    <img
+                      src="https://sabbirsam.wpazleen.com/wp-content/uploads/2026/08/MG_9854-scaled-e1786600215162.jpg"
+                      alt="Sabbir Sam">
+                  </div>
+                </div>
+                <div class="idc-info">
+                  <div class="idc-name">Sabbir Sam</div>
+                  <div class="idc-role">Software Engineer · WPPOOL</div>
+                  <div class="idc-divider"></div>
+                  <div class="idc-stats">
+                    <div class="idc-stat"><span>Experience</span><b>6 Years</b></div>
+                    <div class="idc-stat"><span>Plugins</span><b>17 Shipped</b></div>
+                  </div>
+                  <div class="idc-barcode"></div>
+                  <div class="idc-id">SS-000006 · WPPOOL / WPAZLEEN</div>
+                  <div class="idc-status"><i></i>Available for remote roles</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="idc-classic">
+              <div class="hero-photo-wrap" id="heroPhotoWrap">
+                <div class="hero-photo-glow"></div>
+                <img class="hero-photo" id="heroPhoto"
+                  src="https://sabbirsam.wpazleen.com/wp-content/uploads/2026/08/MG_9854-scaled-e1786600215162.jpg"
+                  alt="Sabbir Sam" loading="eager">
+                <div class="hero-photo-fade"></div>
+                <div class="hero-photo-card glass">
+                  <span class="dot-live"></span>
+                  SABBIR · SAM
+                </div>
+              </div>
             </div>
           </div>
+          <br>
+          <button class="idc-btn primary small" id="idcToggle">Switch to classic photo</button>
         </div>
       </div>
     </section>
@@ -5665,6 +5957,255 @@
         }
         window.addEventListener('load', measure);
       })();
+
+
+      var stage = document.getElementById('idcStage');
+      var canvas = document.getElementById('idcCanvas');
+      var ctx = canvas.getContext('2d');
+      var card = document.getElementById('idcCard');
+      var toggleBtn = document.getElementById('idcToggle');
+
+      /* ---------------- responsive canvas ---------------- */
+      var W, H, DPR;
+      function resize() {
+        var rect = stage.getBoundingClientRect();
+        W = rect.width; H = rect.height;
+        DPR = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = W * DPR; canvas.height = H * DPR;
+        canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+        ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+        anchor.x = W / 2; anchor.y = 6;
+      }
+
+      /* ---------------- verlet rope ---------------- */
+      var SEGMENTS = 14;
+      var SEG_LEN = 15;
+      var GRAVITY = 0.35;
+      var DAMPING = 0.992;
+      var ITER = 8;
+
+      var anchor = { x: 0, y: 6 };
+      var points = [];
+      for (var i = 0; i <= SEGMENTS; i++) {
+        points.push({ x: anchor.x, y: anchor.y + i * SEG_LEN, oldx: anchor.x, oldy: anchor.y + i * SEG_LEN, pinned: i === 0 });
+      }
+
+      var CARD_W = 250, CARD_H = 330; // approx card footprint, used for centering/rotation feel
+
+      /* ---------------- pointer state ---------------- */
+      var dragging = false, dragOffsetY = 0;
+      var last = points[points.length - 1];
+      var targetX = 0, targetY = 0;           // where the pointer wants the card to be (eased toward)
+      var DRAG_EASE = 0.22;                   // lower = smoother/laggier drag, higher = snappier
+      var THROW_DAMP = 0.55;                  // scales down velocity carried into a throw on release
+
+      var pointerDown = false;      // true from mousedown to mouseup
+      var movedEnough = false;      // true only once the pointer has actually traveled — this is what "grabs" the rope
+      var DRAG_THRESHOLD = 4;       // px of movement required before a click becomes a drag
+      var startX = 0, startY = 0;
+
+      function screenToStage(clientX, clientY) {
+        var rect = stage.getBoundingClientRect();
+        return { x: clientX - rect.left, y: clientY - rect.top };
+      }
+
+      card.addEventListener('pointerdown', function (e) {
+        pointerDown = true;
+        movedEnough = false;
+        card.setPointerCapture(e.pointerId);
+        var p = screenToStage(e.clientX, e.clientY);
+        startX = p.x; startY = p.y;
+        // nothing else happens yet — a click that never moves does nothing at all
+      });
+
+      // Canvas cliping issue fixed 
+      /* window.addEventListener('pointermove', function (e) {
+        if (!pointerDown) return;
+        var p = screenToStage(e.clientX, e.clientY);
+
+        if (!movedEnough) {
+          var dx = p.x - startX, dy = p.y - startY;
+          if (Math.sqrt(dx * dx + dy * dy) < DRAG_THRESHOLD) return; // still just a click so far
+          // threshold crossed — engage the grab from here, using the current rope
+          // position as the baseline so there's no snap when it kicks in
+          movedEnough = true;
+          dragging = true;
+          card.classList.add('dragging');
+          dragOffsetY = last.y - p.y;
+          targetX = last.x; targetY = last.y;
+        }
+
+        targetX = p.x; targetY = p.y + dragOffsetY;
+      }); */
+
+      window.addEventListener('pointermove', function (e) {
+        if (!pointerDown) return;
+        var p = screenToStage(e.clientX, e.clientY);
+
+        if (!movedEnough) {
+          var dx = p.x - startX, dy = p.y - startY;
+          if (Math.sqrt(dx * dx + dy * dy) < DRAG_THRESHOLD) return;
+          movedEnough = true;
+          dragging = true;
+          card.classList.add('dragging');
+          dragOffsetY = last.y - p.y;
+          targetX = last.x; targetY = last.y;
+        }
+
+        var nx = p.x;
+        var ny = p.y + dragOffsetY;
+
+        // clamp so the card (and the rope drawn under it) can never leave the canvas
+        var margin = 40; // keep the card fully inside, not just its center point
+        nx = Math.max(margin, Math.min(W - margin, nx));
+        ny = Math.max(margin, Math.min(H - margin, ny));
+
+        targetX = nx;
+        targetY = ny;
+      });
+
+      window.addEventListener('pointerup', function () {
+        pointerDown = false;
+        if (dragging) {
+          dragging = false;
+          card.classList.remove('dragging');
+          // scale the carried velocity down so releases feel like a gentle toss,
+          // not a full-speed fling even after a fast mouse move
+          var vx = (last.x - last.oldx) * THROW_DAMP;
+          var vy = (last.y - last.oldy) * THROW_DAMP;
+          last.oldx = last.x - vx;
+          last.oldy = last.y - vy;
+        }
+      });
+
+      /* ---------------- physics step ---------------- */
+      function step() {
+        // integrate
+        for (var i = 0; i < points.length; i++) {
+          var p = points[i];
+          if (p.pinned) { p.x = anchor.x; p.y = anchor.y; continue; }
+          if (dragging && p === last) {
+            var ox = p.x, oy = p.y;
+            p.x += (targetX - p.x) * DRAG_EASE;
+            p.y += (targetY - p.y) * DRAG_EASE;
+            p.oldx = ox; p.oldy = oy;
+            continue;
+          }
+
+          var vx = (p.x - p.oldx) * DAMPING;
+          var vy = (p.y - p.oldy) * DAMPING;
+          var maxV = 9;
+          if (vx > maxV) vx = maxV; else if (vx < -maxV) vx = -maxV;
+          if (vy > maxV) vy = maxV; else if (vy < -maxV) vy = -maxV;
+
+          // tiny ambient sway only — no reaction to mouse position unless it's actually grabbed
+          var sway = Math.sin(Date.now() / 1600 + i) * 0.015;
+
+          p.oldx = p.x; p.oldy = p.y;
+          p.x += vx + sway;
+          p.y += vy + GRAVITY;
+        }
+
+        // constrain
+        for (var it = 0; it < ITER; it++) {
+          for (var s = 0; s < SEGMENTS; s++) {
+            var a = points[s], b = points[s + 1];
+            var dx = b.x - a.x, dy = b.y - a.y;
+            var dist = Math.sqrt(dx * dx + dy * dy) || 0.0001;
+            var diff = (dist - SEG_LEN) / dist;
+            var offX = dx * 0.5 * diff, offY = dy * 0.5 * diff;
+
+            if (a.pinned && (b === last && dragging)) continue;
+            if (a.pinned) {
+              b.x -= offX * 2; b.y -= offY * 2;
+            } else if (b === last && dragging) {
+              a.x += offX * 2; a.y += offY * 2;
+            } else {
+              a.x += offX; a.y += offY;
+              b.x -= offX; b.y -= offY;
+            }
+          }
+        }
+      }
+
+      /* ---------------- ribbon rendering ---------------- */
+      function drawRibbon() {
+        ctx.clearRect(0, 0, W, H);
+        var ribbonWidth = 16;
+
+        // build left/right edge offsets perpendicular to the rope direction
+        var left = [], right = [];
+        for (var i = 0; i < points.length; i++) {
+          var p = points[i];
+          var nx, ny;
+          if (i === points.length - 1) {
+            nx = points[i].x - points[i - 1].x; ny = points[i].y - points[i - 1].y;
+          } else {
+            nx = points[i + 1].x - points[i].x; ny = points[i + 1].y - points[i].y;
+          }
+          var len = Math.sqrt(nx * nx + ny * ny) || 1;
+          var px = -ny / len, py = nx / len; // perpendicular
+          left.push({ x: p.x + px * ribbonWidth / 2, y: p.y + py * ribbonWidth / 2 });
+          right.push({ x: p.x - px * ribbonWidth / 2, y: p.y - py * ribbonWidth / 2 });
+        }
+
+        var grad = ctx.createLinearGradient(anchor.x, anchor.y, anchor.x, anchor.y + SEGMENTS * SEG_LEN);
+        grad.addColorStop(0, '#0F9B8E');
+        grad.addColorStop(1, '#1FD9C4');
+
+        ctx.beginPath();
+        ctx.moveTo(left[0].x, left[0].y);
+        for (i = 1; i < left.length; i++) ctx.lineTo(left[i].x, left[i].y);
+        for (i = right.length - 1; i >= 0; i--) ctx.lineTo(right[i].x, right[i].y);
+        ctx.closePath();
+        ctx.fillStyle = grad;
+        ctx.fill();
+
+        // center stitch line
+        ctx.beginPath();
+        ctx.moveTo(points[0].x, points[0].y);
+        for (i = 1; i < points.length; i++) ctx.lineTo(points[i].x, points[i].y);
+        ctx.setLineDash([2, 5]);
+        ctx.strokeStyle = 'rgba(255,255,255,.35)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // small ring where the rope meets the top anchor
+        ctx.beginPath();
+        ctx.arc(anchor.x, anchor.y, 4, 0, Math.PI * 2);
+        ctx.fillStyle = '#9aa4ac';
+        ctx.fill();
+      }
+
+      /* ---------------- position the card on the rope end ---------------- */
+      function placeCard() {
+        var a = points[points.length - 2], b = last;
+        var angle = Math.atan2(b.x - a.x, b.y - a.y) * (180 / Math.PI); // relative to vertical
+        angle = Math.max(-35, Math.min(35, angle));
+
+        card.style.left = b.x + 'px';
+        card.style.top = (b.y - 6) + 'px';
+        card.style.transform = 'translate(-50%,0) rotate(' + angle + 'deg)';
+      }
+
+      function loop() {
+        step();
+        drawRibbon();
+        placeCard();
+        requestAnimationFrame(loop);
+      }
+
+      window.addEventListener('resize', resize);
+      resize();
+      requestAnimationFrame(loop);
+
+      /* ---------------- toggle classic / lanyard ---------------- */
+      toggleBtn.addEventListener('click', function () {
+        var isClassic = stage.classList.toggle('classic-mode');
+        toggleBtn.textContent = isClassic ? 'Switch to lanyard card' : 'Switch to classic photo';
+      });
+
 
       /* ---------- SKILL TABS ---------- */
       var tabs = document.querySelectorAll('.skill-tab');
